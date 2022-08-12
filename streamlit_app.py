@@ -6,6 +6,7 @@ import streamlit as st
 import csv
 from pathlib import Path
 from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
 
 fle = Path('posts.csv')
