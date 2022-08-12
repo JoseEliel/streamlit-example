@@ -38,7 +38,7 @@ if submit:
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(posts)
         
-    unique_string=(" ").join(posts)
+    unique_string=(" ").join(''.join(l) for l in posts)
     wordcloud = WordCloud(width = 1000, height = 500).generate(unique_string)
     fig = plt.figure(figsize=(15,8))
     plt.imshow(wordcloud)
