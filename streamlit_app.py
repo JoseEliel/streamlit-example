@@ -34,7 +34,7 @@ submit = form.form_submit_button('Enviar')
 if submit:
     posts.append(post)
     
-    with open('posts.csv', 'wb') as myfile:
+    with open('posts.csv', 'w') as myfile:
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(posts)
         
