@@ -37,12 +37,7 @@ if submit:
     plt.show()
     st.pyplot(fig)
 
-st.download_button(
-     label="Bajar todos los posts",
-     data=csv,
-     file_name='posts.csv',
-     mime='text/csv',
- )
+st.download_button('Bajar posts', f, file_name='posts.csv')
 
 with st.container():
     st.header("Post antiguos")
