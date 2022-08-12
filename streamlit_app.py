@@ -40,7 +40,7 @@ if submit:
         
     unique_string=(" ").join(posts)
     wordcloud = WordCloud(width = 1000, height = 500).generate(unique_string)
-    fig, ax = plt.figure(figsize=(15,8))
+    fig = plt.figure(figsize=(15,8))
     plt.imshow(wordcloud)
     plt.axis("off")
 
