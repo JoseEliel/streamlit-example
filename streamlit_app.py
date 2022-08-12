@@ -33,12 +33,17 @@ submit = form.form_submit_button('Enviar')
 
 if submit:
     posts.append(post)
+    
+    with open('posts.csv', 'wb') as myfile:
+        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+        wr.writerow(posts)
+        
     unique_string=(" ").join(posts)
     wordcloud = WordCloud(width = 1000, height = 500).generate(unique_string)
-    plt.figure(figsize=(15,8))
+    fig, ax = plt.figure(figsize=(15,8))
     plt.imshow(wordcloud)
     plt.axis("off")
 
     plt.show()
-    st.pyplot()
+    st.pyplot(fig)
     
