@@ -11,9 +11,14 @@ import matplotlib.pyplot as plt
 
 fle = Path('posts.csv')
 fle.touch(exist_ok=True)
-with open('posts.csv', newline='') as f:
-    reader = csv.reader(f)
-    posts = list(reader)
+
+posts = []
+with open('posts.csv', 'r') as filehandle:
+    for line in filehandle:
+        # remove linebreak which is the last character of the string
+        currentpost = line[:-1]
+        # add item to the list
+        posts.append(currentpost)
 
 st.title('Las Nubes de Palabras de Paul')
 
@@ -24,9 +29,9 @@ submit = form.form_submit_button('Enviar')
 if submit:
     posts.append(post)
     
-    with open('posts.csv', 'w') as myfile:
-        wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-        wr.writerow(posts)
+    with open('posts.csv', 'w') as filehandle:
+    for listitem in posts:
+        filehandle.write('%s\n' % listitem)
         
     unique_string=(" ").join(''.join(l) for l in posts)
     wordcloud = WordCloud(width = 1000, height = 500).generate(unique_string)
