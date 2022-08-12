@@ -13,9 +13,9 @@ fle = Path('posts.csv')
 fle.touch(exist_ok=True)
 
 posts = []
+
 with open('posts.csv', 'r') as filehandle:
     for line in filehandle:
-        # remove linebreak which is the last character of the string
         currentpost = line[:-1]
         # add item to the list
         posts.append(currentpost)
@@ -30,8 +30,8 @@ if submit:
     posts.append(post)
     
     with open('posts.csv', 'w') as filehandle:
-    for listitem in posts:
-        filehandle.write('%s\n' % listitem)
+        for listitem in posts:
+            filehandle.write('%s\n' % listitem)
         
     unique_string=(" ").join(''.join(l) for l in posts)
     wordcloud = WordCloud(width = 1000, height = 500).generate(unique_string)
