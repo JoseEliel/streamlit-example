@@ -5,6 +5,8 @@ import pandas as pd
 import streamlit as st
 import csv
 from pathlib import Path
+from wordcloud import WordCloud
+
 
 fle = Path('posts.csv')
 fle.touch(exist_ok=True)
@@ -27,8 +29,6 @@ st.title('Las Nubes de Palabras de Paul')
 form = st.form(key='my-form')
 post = form.text_input('Escriba su texto bonito')
 submit = form.form_submit_button('Enviar')
-
-st.write('Escriba su texto bonito')
 
 if submit:
     posts.append(post)
